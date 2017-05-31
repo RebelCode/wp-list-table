@@ -4,8 +4,8 @@ namespace RebelCode\WordPress\Admin\ListTable;
 
 use RebelCode\WordPress\Admin\ActionInterface;
 use RebelCode\WordPress\Admin\HasActionsTrait;
-use RebelCode\WordPress\Admin\HasHtmlClassesTrait;
-use RebelCode\WordPress\Admin\HasSingularPluralLabelsTrait;
+use RebelCode\WordPress\HasHtmlClassesTrait;
+use RebelCode\WordPress\HasSingularPluralLabelsTrait;
 use RebelCode\WordPress\HasAjaxFlagTrait;
 use RebelCode\WordPress\HasPaginationTrait;
 use Traversable;

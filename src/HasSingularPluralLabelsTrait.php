@@ -1,6 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress\Admin;
+namespace RebelCode\WordPress;
 
 /**
  * Something that has singular and plural labels.
