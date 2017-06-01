@@ -2,7 +2,8 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
-use RebelCode\WordPress\BlockInterface;
+use Dhii\Block\BlockInterface;
+use Traversable;
 
 /**
  * Something that represents a list table.
@@ -16,7 +17,7 @@ interface ListTableInterface extends BlockInterface
      *
      * @since [*next-version*]
      *
-     * @return array|\Traversable
+     * @return array|Traversable
      */
     public function getItems();
 

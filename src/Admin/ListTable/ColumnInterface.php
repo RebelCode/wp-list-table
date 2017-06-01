@@ -2,9 +2,9 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
+use Dhii\Block\BlockInterface;
 use Dhii\Data\IdAwareInterface;
 use RebelCode\WordPress\Admin\ActionsAwareInterface;
-use RebelCode\WordPress\BlockInterface;
 use RebelCode\WordPress\LabelAwareInterface;
 
 /**

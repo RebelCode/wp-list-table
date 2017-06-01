@@ -16,7 +16,7 @@
         "dhii/data-identifiable-interface": "^0.1",
         "dhii/data-key-value-aware-interface": "^0.1",
         "dhii/collections-interface": "dev-wip/refactoring",
-        "dhii/stringable-interface": "dev-master",
+        "dhii/block-interface": "dev-task/initial-interface",
         "dhii/data-get-capable-interface": "dev-master"
     },
     "require-dev": {

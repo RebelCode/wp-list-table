@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e2779fa443c9341227d39a1fc448ea0",
+    "content-hash": "316e7a6778311a08d5b35dc138d9845f",
     "packages": [
+        {
+            "name": "dhii/block-interface",
+            "version": "dev-task/initial-interface",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/block-interface.git",
+                "reference": "d839ffa9388777497c234234897de7d3f324ea1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/block-interface/zipball/d839ffa9388777497c234234897de7d3f324ea1b",
+                "reference": "d839ffa9388777497c234234897de7d3f324ea1b",
+                "shasum": ""
+            },
+            "require": {
+                "dhii/stringable-interface": "^0.1",
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Block\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for output blocks.",
+            "support": {
+                "source": "https://github.com/Dhii/block-interface/tree/task/initial-interface",
+                "issues": "https://github.com/Dhii/block-interface/issues"
+            },
+            "time": "2017-04-02 10:48:51"
+        },
         {
             "name": "dhii/collections-interface",
             "version": "dev-wip/refactoring",
@@ -175,7 +229,7 @@
         },
         {
             "name": "dhii/stringable-interface",
-            "version": "dev-master",
+            "version": "v0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/stringable-interface.git",
@@ -213,7 +267,7 @@
                 }
             ],
             "description": "Interoperability interface for objects that can be cast to string",
-            "time": "2017-01-23 15:08:20"
+            "time": "2017-01-23T15:08:20+00:00"
         },
         {
             "name": "dhii/validation-interface",
@@ -1999,7 +2053,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "dhii/collections-interface": 20,
-        "dhii/stringable-interface": 20,
+        "dhii/block-interface": 20,
         "dhii/data-get-capable-interface": 20,
         "dhii/php-cs-fixer-config": 20
     },
