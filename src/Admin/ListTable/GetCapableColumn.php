@@ -2,8 +2,10 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
+use Dhii\Data\GetCapableInterface;
+
 /**
- * Description of GetCapableColumn.
+ * A column that renders data for an item that implements {@see Dhii\Data\GetCapableInterface}.
  *
  * @since [*next-version*]
  */
@@ -14,10 +16,10 @@ class GetCapableColumn extends AbstractBaseColumn
      *
      * @since [*next-version*]
      */
-    public function render($item)
+    protected function _renderContent(ListTableInterface $listTable, $item)
     {
         return ($item instanceof GetCapableInterface)
-            ? $item->get($this->getId())
+            ? (string) $item->get($this->getId())
             : null;
     }
 }
