@@ -2,8 +2,8 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
-use Dhii\Collection\CollectionInterface;
 use RebelCode\WordPress\CollectionAwareInterface;
+use RebelCode\WordPress\CollectionInterface;
 use RebelCode\WordPress\HasCollectionTrait;
 
 /**
