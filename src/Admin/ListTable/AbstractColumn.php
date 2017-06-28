@@ -4,9 +4,9 @@ namespace RebelCode\WordPress\Admin\ListTable;
 
 use Dhii\Util\String\StringableInterface;
 use RebelCode\WordPress\Admin\ActionInterface;
-use RebelCode\WordPress\Admin\HasActionsTrait;
-use RebelCode\WordPress\HasIdTrait;
-use RebelCode\WordPress\HasLabelTrait;
+use RebelCode\WordPress\Admin\ActionsAwareTrait;
+use RebelCode\WordPress\IdAwareTrait;
+use RebelCode\WordPress\LabelAwareTrait;
 use Traversable;
 
 /**
@@ -16,9 +16,9 @@ use Traversable;
  */
 abstract class AbstractColumn
 {
-    use HasActionsTrait;
-    use HasIdTrait;
-    use HasLabelTrait;
+    use ActionsAwareTrait;
+    use IdAwareTrait;
+    use LabelAwareTrait;
 
     /**
      * Sortable flag.

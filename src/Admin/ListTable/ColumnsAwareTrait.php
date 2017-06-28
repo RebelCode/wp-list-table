@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
  *
  * @since [*next-version*]
  */
-trait HasColumnsTrait
+trait ColumnsAwareTrait
 {
     /**
      * The columns.

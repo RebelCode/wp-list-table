@@ -4,7 +4,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
 
 use RebelCode\WordPress\CollectionAwareInterface;
 use RebelCode\WordPress\CollectionInterface;
-use RebelCode\WordPress\HasCollectionTrait;
+use RebelCode\WordPress\CollectionAwareTrait;
 
 /**
  * A list table that displays items in a collection.
@@ -13,7 +13,7 @@ use RebelCode\WordPress\HasCollectionTrait;
  */
 class CollectionListTable extends AbstractBaseListTable implements CollectionAwareInterface
 {
-    use HasCollectionTrait;
+    use CollectionAwareTrait;
 
     /**
      * Constructor.

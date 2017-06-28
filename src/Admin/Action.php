@@ -2,8 +2,8 @@
 
 namespace RebelCode\WordPress\Admin;
 
-use RebelCode\WordPress\HasIdTrait;
-use RebelCode\WordPress\HasLabelTrait;
+use RebelCode\WordPress\IdAwareTrait;
+use RebelCode\WordPress\LabelAwareTrait;
 
 /**
  * Implementation of a simple action.
@@ -12,8 +12,8 @@ use RebelCode\WordPress\HasLabelTrait;
  */
 class Action implements ActionInterface
 {
-    use HasIdTrait;
-    use HasLabelTrait;
+    use IdAwareTrait;
+    use LabelAwareTrait;
 
     /**
      * Constructor.

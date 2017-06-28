@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasIdTrait
+trait IdAwareTrait
 {
     /**
      * The ID.

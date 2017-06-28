@@ -3,11 +3,11 @@
 namespace RebelCode\WordPress\Admin\ListTable;
 
 use RebelCode\WordPress\Admin\ActionInterface;
-use RebelCode\WordPress\Admin\HasActionsTrait;
-use RebelCode\WordPress\HasHtmlClassesTrait;
-use RebelCode\WordPress\HasSingularPluralLabelsTrait;
-use RebelCode\WordPress\HasAjaxFlagTrait;
-use RebelCode\WordPress\HasPaginationTrait;
+use RebelCode\WordPress\Admin\ActionsAwareTrait;
+use RebelCode\WordPress\HtmlClassesAwareTrait;
+use RebelCode\WordPress\SingularPluralLabelsAwareTrait;
+use RebelCode\WordPress\AjaxFlagAwareTrait;
+use RebelCode\WordPress\PaginationAwareTrait;
 use Traversable;
 
 /**
@@ -17,15 +17,15 @@ use Traversable;
  */
 abstract class AbstractListTable extends AbstractListTableWrapper
 {
-    use HasSingularPluralLabelsTrait;
-    use HasActionsTrait;
-    use HasPaginationTrait;
-    use HasHtmlClassesTrait;
-    use HasRowHtmlClassesTrait;
-    use HasColumnsTrait;
-    use HasHiddenColumnsTrait;
-    use HasAjaxFlagTrait;
-    use HasPrimaryColumnTrait;
+    use SingularPluralLabelsAwareTrait;
+    use ActionsAwareTrait;
+    use PaginationAwareTrait;
+    use HtmlClassesAwareTrait;
+    use RowHtmlClassesAwareTrait;
+    use ColumnsAwareTrait;
+    use HiddenColumnsAwareTrait;
+    use AjaxFlagAwareTrait;
+    use PrimaryColumnAwareTrait;
 
     /**
      * Renders the list table.

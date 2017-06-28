@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasAjaxFlagTrait
+trait AjaxFlagAwareTrait
 {
     /**
      * AJAX enabled flag.

@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasLabelTrait
+trait LabelAwareTrait
 {
     /**
      * The label.

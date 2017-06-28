@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin;
  *
  * @since [*next-version*]
  */
-trait HasActionsTrait
+trait ActionsAwareTrait
 {
     /**
      * The actions.

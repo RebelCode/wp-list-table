@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
  *
  * @since [*next-version*]
  */
-trait HasPrimaryColumnTrait
+trait PrimaryColumnAwareTrait
 {
     /**
      * The primary column ID.

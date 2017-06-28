@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasSingularPluralLabelsTrait
+trait SingularPluralLabelsAwareTrait
 {
     /**
      * The singular label.

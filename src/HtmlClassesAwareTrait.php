@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasHtmlClassesTrait
+trait HtmlClassesAwareTrait
 {
     /**
      * The HTML classes.

@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
  *
  * @since [*next-version*]
  */
-trait HasRowHtmlClassesTrait
+trait RowHtmlClassesAwareTrait
 {
     /**
      * The table row HTML classes.

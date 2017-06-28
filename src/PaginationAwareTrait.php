@@ -7,7 +7,7 @@ namespace RebelCode\WordPress;
  *
  * @since [*next-version*]
  */
-trait HasPaginationTrait
+trait PaginationAwareTrait
 {
     /**
      * The number of items per page.

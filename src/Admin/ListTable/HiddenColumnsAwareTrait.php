@@ -7,7 +7,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
  *
  * @since [*next-version*]
  */
-trait HasHiddenColumnsTrait
+trait HiddenColumnsAwareTrait
 {
     /**
      * The list of hidden column IDs.

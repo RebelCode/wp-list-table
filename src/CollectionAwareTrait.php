@@ -9,7 +9,7 @@ use Dhii\Collection\CollectionInterface;
  *
  * @since [*next-version*]
  */
-trait HasCollectionTrait
+trait CollectionAwareTrait
 {
     /**
      * The item collection.
