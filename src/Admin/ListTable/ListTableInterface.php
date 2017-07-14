@@ -3,6 +3,8 @@
 namespace RebelCode\WordPress\Admin\ListTable;
 
 use Dhii\Block\BlockInterface;
+use RebelCode\WordPress\Admin\ListTable\Column\ColumnInterface;
+use RebelCode\WordPress\Pagination\PaginationHandlerInterface;
 use Traversable;
 
 /**
@@ -10,7 +12,7 @@ use Traversable;
  *
  * @since [*next-version*]
  */
-interface ListTableInterface extends BlockInterface
+interface ListTableInterface extends BlockInterface, PaginationHandlerInterface
 {
     /**
      * Retrieves the items in the list table.
@@ -47,40 +49,4 @@ interface ListTableInterface extends BlockInterface
      * @return string[]
      */
     public function getHiddenColumns();
-
-    /**
-     * Retrieves the number of items per page.
-     *
-     * @since [*next-version*]
-     *
-     * @return int
-     */
-    public function getItemsPerPage();
-
-    /**
-     * Gets the current page number.
-     *
-     * @since [*next-version*]
-     *
-     * @return int
-     */
-    public function getCurrentPage();
-
-    /**
-     * Retrieves the total number of pages.
-     *
-     * @since [*next-version*]
-     *
-     * @return int
-     */
-    public function getTotalNumPages();
-
-    /**
-     * Renders the list table.
-     *
-     * @since [*next-version*]
-     *
-     * @return string
-     */
-    public function render();
 }
