@@ -2,9 +2,11 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
-use RebelCode\WordPress\CollectionAwareInterface;
-use RebelCode\WordPress\CollectionInterface;
-use RebelCode\WordPress\CollectionAwareTrait;
+use Dhii\Util\CallbackAwareTrait;
+use RebelCode\WordPress\Admin\ListTable\Row\Row;
+use RebelCode\WordPress\Collection\CollectionAwareInterface;
+use RebelCode\WordPress\Collection\CollectionAwareTrait;
+use RebelCode\WordPress\Collection\CollectionInterface;
 
 /**
  * A list table that displays items in a collection.
@@ -14,6 +16,16 @@ use RebelCode\WordPress\CollectionAwareTrait;
 class CollectionListTable extends AbstractBaseListTable implements CollectionAwareInterface
 {
     use CollectionAwareTrait;
+    use CallbackAwareTrait;
+
+    /**
+     * The collection.
+     *
+     * @since [*next-version*]
+     *
+     * @var CollectionInterface
+     */
+    protected $collection;
 
     /**
      * Constructor.
@@ -22,11 +34,34 @@ class CollectionListTable extends AbstractBaseListTable implements CollectionAwa
      *
      * @param CollectionInterface $collection The collection of items.
      */
-    public function __construct(CollectionInterface $collection)
-    {
+    public function __construct(
+        CollectionInterface $collection,
+        callable $idCallback,
+        $columns,
+        $numItems = null,
+        $actions = array()
+    ) {
         parent::__construct();
 
-        $this->_setCollection($collection);
+        $numItems = ($numItems === null)
+            ? $collection->count()
+            : $numItems;
+
+        $this->_setCollection($collection)
+             ->_setColumns($columns)
+             ->_setNumItems($numItems)
+             ->_setActions($actions)
+             ->_setCallback($idCallback);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function getCollection()
+    {
+        return $this->_getCollection();
     }
 
     /**
@@ -44,8 +79,10 @@ class CollectionListTable extends AbstractBaseListTable implements CollectionAwa
      *
      * @since [*next-version*]
      */
-    public function getCollection()
+    protected function _createRow($item)
     {
-        return $this->_getCollection();
+        $id = call_user_func_array($this->_getCallback(), array($item));
+
+        new Row($id, $item);
     }
 }

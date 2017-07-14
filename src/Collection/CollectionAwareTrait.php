@@ -1,8 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress;
-
-use Dhii\Collection\CollectionInterface;
+namespace RebelCode\WordPress\Collection;
 
 /**
  * Something that has a collection.
@@ -16,7 +14,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @var \RebelCode\WordPress\Collection\CollectionInterface
+     * @var CollectionInterface
      */
     protected $collection;
 
@@ -25,7 +23,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @return \RebelCode\WordPress\Collection\CollectionInterface
+     * @return CollectionInterface
      */
     protected function _getCollection()
     {
@@ -37,7 +35,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param \RebelCode\WordPress\Collection\CollectionInterface $collection The item collection.
+     * @param CollectionInterface $collection The item collection.
      *
      * @return $this
      */
