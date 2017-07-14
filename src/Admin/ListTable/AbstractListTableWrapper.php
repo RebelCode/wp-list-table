@@ -2,8 +2,16 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
+use RebelCode\WordPress\Admin\ListTable\Column\ColumnInterface;
+
 /**
- * Wraps the native WordPress List Table.
+ * Wraps the native WordPress List Table for extendability.
+ *
+ * The native WordPress List Table is intended to be extended for narrow purposes.
+ * This involves overriding methods such as `get_columns()` to return an associative array of column information.
+ *
+ * This class proxies these such methods to other abstract methods so that further levels of abstraction may
+ * provide more functionality.
  *
  * @since [*next-version*]
  */

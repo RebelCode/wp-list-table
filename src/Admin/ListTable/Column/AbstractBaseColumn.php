@@ -1,9 +1,9 @@
 <?php
 
-namespace RebelCode\WordPress\Admin\ListTable;
+namespace RebelCode\WordPress\Admin\ListTable\Column;
 
-use RebelCode\WordPress\Admin\ListTable\Column\AbstractColumn;
-use RebelCode\WordPress\Admin\ListTable\Column\ColumnInterface;
+use RebelCode\WordPress\Admin\ListTable\ActionInterface;
+use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
 
 /**
  * Base functionality for a column.
@@ -25,9 +25,10 @@ abstract class AbstractBaseColumn extends AbstractColumn implements ColumnInterf
     public function __construct($id, $label, $sortable = false, $actions = array())
     {
         $this->_setId($id)
-            ->_setLabel($label)
-            ->_setSortable($sortable)
-            ->_setActions($actions);
+             ->_setLabel($label)
+             ->_setSortable($sortable)
+             ->_setActions($actions)
+             ->_setType(static::TYPE_REGULAR);
     }
 
     /**
@@ -48,6 +49,16 @@ abstract class AbstractBaseColumn extends AbstractColumn implements ColumnInterf
     public function getLabel()
     {
         return $this->_getLabel();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    public function getType()
+    {
+        return $this->_getType();
     }
 
     /**

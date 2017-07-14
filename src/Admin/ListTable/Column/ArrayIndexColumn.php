@@ -1,7 +1,9 @@
 <?php
 
-namespace RebelCode\WordPress\Admin\ListTable;
-use RebelCode\WordPress\Admin\ListTable\Column\AbstractBaseColumn;
+namespace RebelCode\WordPress\Admin\ListTable\Column;
+
+use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
+use RebelCode\WordPress\Admin\ListTable\Row\RowInterface;
 
 /**
  * A column that displays the data for a specific index in an array item.
@@ -11,13 +13,58 @@ use RebelCode\WordPress\Admin\ListTable\Column\AbstractBaseColumn;
 class ArrayIndexColumn extends AbstractBaseColumn
 {
     /**
-     * {@inheritdoc}
+     * The array index to use for rendering.
      *
      * @since [*next-version*]
+     *
+     * @var int|string
      */
-    protected function _renderContent(ListTableInterface $listTable, $item)
+    protected $arrayIndex;
+
+    /**
+     * Constructor.
+     *
+     * @since [*next-version*]
+     *
+     * @param string            $id         The action ID.
+     * @param string            $label      The action label.
+     * @param int|string        $arrayIndex The array index to use for rendering.
+     * @param bool              $sortable   True to make the column sortable, false to make it non-sortable.
+     * @param ActionInterface[] $actions    The action instances.
+     */
+    public function __construct($id, $label, $arrayIndex, $sortable = false, $actions = array())
     {
-        return (string) $this->_getItemData($this->_getId(), $item);
+        parent::__construct($id, $label, $sortable, $actions);
+
+        $this->setArrayIndex($arrayIndex);
+    }
+
+    /**
+     * Retrieves the array index to use for rendering.
+     *
+     * @since [*next-version*]
+     *
+     * @return int|string
+     */
+    protected function getArrayIndex()
+    {
+        return $this->arrayIndex;
+    }
+
+    /**
+     * Sets the array index to use for rendering.
+     *
+     * @since [*next-version*]
+     *
+     * @param mixed $arrayIndex
+     *
+     * @return ArrayIndexColumn
+     */
+    protected function setArrayIndex($arrayIndex)
+    {
+        $this->arrayIndex = $arrayIndex;
+
+        return $this;
     }
 
     /**
@@ -35,5 +82,15 @@ class ArrayIndexColumn extends AbstractBaseColumn
         return (is_array($item) && isset($item[$key]))
             ? $item[$key]
             : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since [*next-version*]
+     */
+    protected function _renderContent(ListTableInterface $listTable, RowInterface $row)
+    {
+        return (string) $this->_getItemData($this->getArrayIndex(), $row->getItem());
     }
 }

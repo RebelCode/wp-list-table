@@ -1,13 +1,14 @@
 <?php
 
-namespace RebelCode\WordPress\Admin\ListTable;
+namespace RebelCode\WordPress\Admin\ListTable\Column;
 
 use Dhii\Util\String\StringableInterface;
-use RebelCode\WordPress\Action\ActionInterface;
 use RebelCode\WordPress\Action\ActionsAwareTrait;
+use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
+use RebelCode\WordPress\Admin\ListTable\Row\RowInterface;
+use RebelCode\WordPress\Html\HtmlRenderCapableTrait;
 use RebelCode\WordPress\IdAwareTrait;
 use RebelCode\WordPress\LabelAwareTrait;
-use Traversable;
 
 /**
  * Basic functionality for a column.
@@ -16,7 +17,7 @@ use Traversable;
  */
 abstract class AbstractColumn
 {
-    use RebelCode\WordPress\Action\ActionsAwareTrait;
+    use ActionsAwareTrait;
     use IdAwareTrait;
     use LabelAwareTrait;
     use HtmlRenderCapableTrait;
@@ -109,47 +110,95 @@ abstract class AbstractColumn
         return $this;
     }
 
+    /**
      * Retrieves the content for a specific item.
      *
      * @since [*next-version*]
      *
      * @param ListTableInterface $listTable The list table in which the column cell is being rendered.
-     * @param mixed              $item      The item being rendered.
+     * @param RowInterface       $row       The row being rendered.
      *
-     * @return StringableInterface|string
+     * @return string
      */
-    protected function _render(ListTableInterface $listTable, $item)
+    protected function _render(ListTableInterface $listTable, RowInterface $row)
     {
-        return sprintf(
-            '%2$s %3$s %4$s',
-            $this->_renderContent($listTable, $item),
-            $this->_renderActions($listTable, $item),
-            $this->_renderResponsiveToggleButton($listTable, $item)
+        return $this->_tag(
+            $this->_getHtmlTag($listTable, $row),
+            $this->_getHtmlAttributes($listTable, $row),
+            array(
+                $this->_renderContent($listTable, $row),
+                $this->_renderActions($listTable, $row),
+                $this->_renderResponsiveToggleButton($listTable, $row),
+            )
         );
     }
 
     /**
-     * Prepares the actions.
+     * Retrieves the HTML tag to use for a particular cell.
      *
      * @since [*next-version*]
      *
-     * @param ActionInterface[]|Traversable $actions A list of action instances.
+     * @param ListTableInterface $listTable The list table.
+     * @param RowInterface       $row       The row being rendered.
+     *
+     * @return string
+     */
+    protected function _getHtmlTag(ListTableInterface $listTable, RowInterface $row)
+    {
+        return ($this->_getType() === ColumnInterface::TYPE_HEADER)
+            ? static::HTML_TAG_HEADER
+            : static::HTML_TAG_REGULAR;
+    }
+
+    /**
+     * Retrieves the HTML attributes for a particular cell.
+     *
+     * @since [*next-version*]
+     *
+     * @param ListTableInterface $listTable The list table instance.
+     * @param RowInterface       $row       The row being rendered.
      *
      * @return string[]
      */
-    protected function _prepareActions($actions)
+    protected function _getHtmlAttributes(ListTableInterface $listTable, RowInterface $row)
     {
-        $result = array();
+        return array(
+            'class'        => $this->_getHtmlClasses($listTable, $row),
+            'data-colname' => $this->_getLabel(),
+        );
+    }
 
-        foreach ($actions as $action) {
-            $result[$action->getId()] = sprintf(
-                '<a href="?action=%1$s">%2$s</a>',
-                $action->getId(),
-                $action->getLabel()
-            );
+    /**
+     * Retrieves the HTML classes to use for a particular cell.
+     *
+     * @since [*next-version*]
+     *
+     * @param ListTableInterface $listTable The list table instance.
+     * @param RowInterface       $row       The row being rendered.
+     *
+     * @return string[]
+     */
+    protected function _getHtmlClasses(ListTableInterface $listTable, RowInterface $row)
+    {
+        $columnId = $this->getId();
+        $classes  = array(
+            $columnId,
+            sprintf('column-%s', $columnId),
+        );
+
+        if ($columnId === $listTable->getPrimaryColumn()) {
+            $classes[] = 'column-primary';
         }
 
-        return $result;
+        if (in_array($columnId, $listTable->getHiddenColumns())) {
+            $classes[] = 'hidden';
+        }
+
+        if (count($this->getActions())) {
+            $classes[] = 'has-row-actions';
+        }
+
+        return $classes;
     }
 
     /**
@@ -158,13 +207,27 @@ abstract class AbstractColumn
      * @since [*next-version*]
      *
      * @param ListTableInterface $listTable The list table instance.
-     * @param mixed              $item      The item.
+     * @param RowInterface       $row       The row being rendered.
      *
      * @return string The rendered HTML.
      */
-    protected function _renderActions(ListTableInterface $listTable, $item)
+    protected function _renderActions(ListTableInterface $listTable, RowInterface $row)
     {
-        $rowActions = $this->_prepareActions($this->_getActions());
+        $rowActions = array();
+
+        foreach ($this->_getActions() as $_action) {
+            $rowActions[$_action->getId()] = $this->_tag(
+                'a',
+                array(
+                    'href' => sprintf(
+                        '?item=%1$s&action=%2$s',
+                        $row->getId(),
+                        $_action->getId()
+                    ),
+                ),
+                $_action->getLabel()
+            );
+        }
 
         return $listTable->row_actions($rowActions);
     }
@@ -175,15 +238,14 @@ abstract class AbstractColumn
      * @since [*next-version*]
      *
      * @param ListTableInterface $listTable The list table.
-     * @param mixed              $item      The item.
+     * @param RowInterface       $row       The row being rendered.
      *
      * @return string|StringableInterface
      */
-    protected function _renderResponsiveToggleButton(ListTableInterface $listTable, $item)
+    protected function _renderResponsiveToggleButton(ListTableInterface $listTable, RowInterface $row)
     {
-        return sprintf(
-            '<button type="button" class="toggle-row"><span class="screen-reader-text">%s</span></button>',
-            __('Show more details')
+        return $this->_tag('button', array('type' => 'button', 'class' => 'toggle-row'),
+            $this->_tag('span', array('class' => 'screen-reader-text'), \__('Show more details'))
         );
     }
 
@@ -193,9 +255,9 @@ abstract class AbstractColumn
      * @since [*next-version*]
      *
      * @param ListTableInterface $listTable The list table.
-     * @param mixed              $item      The item.
+     * @param RowInterface       $row       The row being rendered.
      *
      * @return string|StringableInterface
      */
-    abstract protected function _renderContent(ListTableInterface $listTable, $item);
+    abstract protected function _renderContent(ListTableInterface $listTable, RowInterface $row);
 }

@@ -3,36 +3,38 @@
 namespace RebelCode\WordPress\Admin\ListTable\Column;
 
 use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
+use RebelCode\WordPress\Admin\ListTable\Row\RowInterface;
 
 /**
  * Description of AbstractCheckboxColumn.
  *
  * @since [*next-version*]
  */
-class CheckboxColumn extends AbstractColumn
+class CheckboxColumn extends AbstractBaseColumn
 {
     /**
-     * Gets the ID of an item.
+     * Constructor.
      *
      * @since [*next-version*]
-     *
-     * @param ListTableInterface $listTable The list table.
-     * @param mixed              $item      The item.
-     *
-     * @return string|int
      */
-    abstract protected function _getRowActionItemId(ListTableInterface $listTable, $item);
+    public function __construct()
+    {
+        parent::__construct('cb', '<input type="checkbox" />', false, array());
+
+        $this->_setType(static::TYPE_HEADER);
+    }
 
     /**
      * {@inheritdoc}
      *
      * @since [*next-version*]
      */
-    protected function _renderContent(ListTableInterface $listTable, $item)
+    protected function _renderContent(ListTableInterface $listTable, RowInterface $row)
     {
-        $id = $this->_getRowActionItemId($listTable, $item);
-
-        return sprintf('<input id="cb-select-%1$s" type="checkbox" name="item[]" value="%1$s" />', $id);
+        return sprintf(
+            '<input id="cb-select-%1$s" type="checkbox" name="item[]" value="%1$s" />',
+            $row->getId()
+        );
     }
 
     /**
@@ -42,6 +44,6 @@ class CheckboxColumn extends AbstractColumn
      */
     protected function _getHtmlClasses(ListTableInterface $listTable, $row)
     {
-        return ['check-column'];
+        return array('check-column');
     }
 }
