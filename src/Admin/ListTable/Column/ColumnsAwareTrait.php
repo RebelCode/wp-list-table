@@ -1,7 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress\Admin\ListTable;
-use RebelCode\WordPress\Admin\ListTable\Column\ColumnInterface;
+namespace RebelCode\WordPress\Admin\ListTable\Column;
 
 /**
  * Something that has list table columns.

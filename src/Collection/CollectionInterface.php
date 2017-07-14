@@ -1,8 +1,8 @@
 <?php
 
-namespace RebelCode\WordPress;
+namespace RebelCode\WordPress\Collection;
 
-use Dhii\Collection\GrossCollectionInterface;
+use Dhii\Collection\ReadableCollectionInterface;
 
 /**
  * Represents a collection of things.

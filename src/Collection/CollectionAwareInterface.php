@@ -1,8 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress;
-
-use Dhii\Collection\CollectionInterface;
+namespace RebelCode\WordPress\Collection;
 
 /**
  * Something that has a collection.

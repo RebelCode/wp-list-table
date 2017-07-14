@@ -1,7 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress\Admin;
-use RebelCode\WordPress\Action\ActionInterface;
+namespace RebelCode\WordPress\Action;
 
 /**
  * Something that has actions.

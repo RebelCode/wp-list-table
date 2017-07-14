@@ -1,6 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress;
+namespace RebelCode\WordPress\Html;
 
 /**
  * Something that has HTML classes.

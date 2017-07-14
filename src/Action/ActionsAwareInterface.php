@@ -1,8 +1,7 @@
 <?php
 
-namespace RebelCode\WordPress\Admin;
+namespace RebelCode\WordPress\Action;
 
-use RebelCode\WordPress\Action\ActionInterface;
 use Traversable;
 
 /**
