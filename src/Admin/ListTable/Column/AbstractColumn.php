@@ -19,6 +19,30 @@ abstract class AbstractColumn
     use RebelCode\WordPress\Action\ActionsAwareTrait;
     use IdAwareTrait;
     use LabelAwareTrait;
+    use HtmlRenderCapableTrait;
+
+    /**
+     * HTML tag for header column cells.
+     *
+     * @since [*next-version*]
+     */
+    const HTML_TAG_HEADER = 'th';
+
+    /**
+     * HTML tag for regular column cells.
+     *
+     * @since [*next-version*]
+     */
+    const HTML_TAG_REGULAR = 'td';
+
+    /**
+     * The column type.
+     *
+     * @since [*next-version*]
+     *
+     * @var int
+     */
+    protected $type;
 
     /**
      * Sortable flag.
@@ -58,6 +82,33 @@ abstract class AbstractColumn
     }
 
     /**
+     * Retrieves the column type.
+     *
+     * @since [*next-version*]
+     *
+     * @return int
+     */
+    protected function _getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Sets the column type.
+     *
+     * @since [*next-version*]
+     *
+     * @param int $type The column type.
+     *
+     * @return $this
+     */
+    protected function _setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
      * Retrieves the content for a specific item.
      *
      * @since [*next-version*]
