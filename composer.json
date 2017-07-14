@@ -17,7 +17,9 @@
         "dhii/data-key-value-aware-interface": "^0.1",
         "dhii/collections-interface": "dev-wip/refactoring",
         "dhii/block-interface": "dev-task/initial-interface",
-        "dhii/data-get-capable-interface": "dev-master"
+        "dhii/data-get-capable-interface": "dev-master",
+        "dhii/invocable-interface": "dev-task/initial-interfaces",
+        "dhii/callback-aware-trait": "dev-task/initial-traits"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
@@ -28,5 +30,15 @@
         "psr-4": {
             "RebelCode\\WordPress\\": "src"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/invocable-interface"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Dhii/callback-aware-trait"
+        }
+    ]
 }

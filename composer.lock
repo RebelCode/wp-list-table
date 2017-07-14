@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "316e7a6778311a08d5b35dc138d9845f",
+    "content-hash": "f62477d530e7021fefd959705e3bc4cf",
     "packages": [
         {
             "name": "dhii/block-interface",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/block-interface.git",
-                "reference": "d839ffa9388777497c234234897de7d3f324ea1b"
+                "reference": "c398d9f37499b68d218b09e51de1ca08c9aa50d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/block-interface/zipball/d839ffa9388777497c234234897de7d3f324ea1b",
-                "reference": "d839ffa9388777497c234234897de7d3f324ea1b",
+                "url": "https://api.github.com/repos/Dhii/block-interface/zipball/c398d9f37499b68d218b09e51de1ca08c9aa50d5",
+                "reference": "c398d9f37499b68d218b09e51de1ca08c9aa50d5",
                 "shasum": ""
             },
             "require": {
@@ -34,6 +34,48 @@
             "autoload": {
                 "psr-4": {
                     "Dhii\\Block\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interfaces for output blocks.",
+            "time": "2017-06-30 12:17:03"
+        },
+        {
+            "name": "dhii/callback-aware-trait",
+            "version": "dev-task/initial-traits",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/callback-aware-trait.git",
+                "reference": "15f889ee07d75730c772243202e04872d12feec9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/callback-aware-trait/zipball/15f889ee07d75730c772243202e04872d12feec9",
+                "reference": "15f889ee07d75730c772243202e04872d12feec9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Util\\": "src"
                 }
             },
             "scripts": {
@@ -53,12 +95,12 @@
                     "email": "development@dhii.co"
                 }
             ],
-            "description": "Interfaces for output blocks.",
+            "description": "Traits for objects that are aware of callback functions.",
             "support": {
-                "source": "https://github.com/Dhii/block-interface/tree/task/initial-interface",
-                "issues": "https://github.com/Dhii/block-interface/issues"
+                "source": "https://github.com/Dhii/callback-aware-trait/tree/task/initial-traits",
+                "issues": "https://github.com/Dhii/callback-aware-trait/issues"
             },
-            "time": "2017-04-02 10:48:51"
+            "time": "2017-07-04 12:07:41"
         },
         {
             "name": "dhii/collections-interface",
@@ -226,6 +268,59 @@
             ],
             "description": "Interfaces that aim to increase interoperability of value objects",
             "time": "2017-01-21T17:35:30+00:00"
+        },
+        {
+            "name": "dhii/invocable-interface",
+            "version": "dev-task/initial-interfaces",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dhii/invocable-interface.git",
+                "reference": "2bc2797567a4be4a4f92dfbcb2f822cee4cf01c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dhii/invocable-interface/zipball/2bc2797567a4be4a4f92dfbcb2f822cee4cf01c1",
+                "reference": "2bc2797567a4be4a4f92dfbcb2f822cee4cf01c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 | ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "<=0.3.2",
+                "dhii/php-cs-fixer-config": "dev-php-5.3",
+                "phpunit/phpunit": "^4.8",
+                "ptrofimov/xpmock": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dhii\\Util\\Invocation\\": "src"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "csfix": [
+                    "php-cs-fixer fix -vvv"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhii Team",
+                    "email": "development@dhii.co"
+                }
+            ],
+            "description": "Interface for objects that can be invoked.",
+            "support": {
+                "source": "https://github.com/Dhii/invocable-interface/tree/task/initial-interfaces",
+                "issues": "https://github.com/Dhii/invocable-interface/issues"
+            },
+            "time": "2017-03-30 11:23:27"
         },
         {
             "name": "dhii/stringable-interface",
@@ -927,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "912b8c1e9e399a18312f30d7d9d25a6c20035709"
+                "reference": "18e5f52e8412d23e739f7d8744e177039860e800"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/912b8c1e9e399a18312f30d7d9d25a6c20035709",
-                "reference": "912b8c1e9e399a18312f30d7d9d25a6c20035709",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/18e5f52e8412d23e739f7d8744e177039860e800",
+                "reference": "18e5f52e8412d23e739f7d8744e177039860e800",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +1086,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-04 06:40:26"
+            "time": "2017-06-23 12:44:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1507,12 +1602,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "21d5f8e3a5683eeab3ff2c8664faca37678c6e28"
+                "reference": "fd3a67818569fc29a5f8fb977912a242f7318cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/21d5f8e3a5683eeab3ff2c8664faca37678c6e28",
-                "reference": "21d5f8e3a5683eeab3ff2c8664faca37678c6e28",
+                "url": "https://api.github.com/repos/symfony/console/zipball/fd3a67818569fc29a5f8fb977912a242f7318cd4",
+                "reference": "fd3a67818569fc29a5f8fb977912a242f7318cd4",
                 "shasum": ""
             },
             "require": {
@@ -1521,15 +1616,17 @@
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "symfony/dependency-injection": "<3.3",
+                "symfony/process": "<3.3"
             },
             "require-dev": {
                 "psr/log": "~1.0",
+                "symfony/config": "~3.3|~4.0",
                 "symfony/dependency-injection": "~3.3|~4.0",
                 "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
                 "symfony/filesystem": "~2.8|~3.0|~4.0",
                 "symfony/http-kernel": "~2.8|~3.0|~4.0",
-                "symfony/process": "~2.8|~3.0|~4.0"
+                "symfony/process": "~3.3|~4.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -1567,7 +1664,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-28 14:09:32"
+            "time": "2017-07-12T09:59:19+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1575,12 +1672,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "0f82f184dd9b9c2594abea4af61e0955c1a1a18f"
+                "reference": "296d63b9b2fbe8da9308713295543c08e93cc9cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/0f82f184dd9b9c2594abea4af61e0955c1a1a18f",
-                "reference": "0f82f184dd9b9c2594abea4af61e0955c1a1a18f",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/296d63b9b2fbe8da9308713295543c08e93cc9cf",
+                "reference": "296d63b9b2fbe8da9308713295543c08e93cc9cf",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1720,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-28 10:56:43"
+            "time": "2017-07-06 13:36:30"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1631,12 +1728,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "1233ae886aa450e2a0b20b45e7dfab5c2f3ed8b1"
+                "reference": "db08b1b2f9adb5d59a5e838d1577e73c418e05ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/1233ae886aa450e2a0b20b45e7dfab5c2f3ed8b1",
-                "reference": "1233ae886aa450e2a0b20b45e7dfab5c2f3ed8b1",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/db08b1b2f9adb5d59a5e838d1577e73c418e05ed",
+                "reference": "db08b1b2f9adb5d59a5e838d1577e73c418e05ed",
                 "shasum": ""
             },
             "require": {
@@ -1686,7 +1783,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-24 09:02:43"
+            "time": "2017-06-12 16:03:21"
         },
         {
             "name": "symfony/filesystem",
@@ -1694,12 +1791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "6d8908bdedd35ce2cdb8329062cc762f1259b317"
+                "reference": "353cb00e1fb1342b6e30a6c84e4b301568e58b9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/6d8908bdedd35ce2cdb8329062cc762f1259b317",
-                "reference": "6d8908bdedd35ce2cdb8329062cc762f1259b317",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/353cb00e1fb1342b6e30a6c84e4b301568e58b9f",
+                "reference": "353cb00e1fb1342b6e30a6c84e4b301568e58b9f",
                 "shasum": ""
             },
             "require": {
@@ -1735,7 +1832,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-28 14:09:32"
+            "time": "2017-07-11 07:19:17"
         },
         {
             "name": "symfony/finder",
@@ -1743,12 +1840,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "c14f5cd1d3dd7376ec8bfe78924ab3d20fcbef52"
+                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/c14f5cd1d3dd7376ec8bfe78924ab3d20fcbef52",
-                "reference": "c14f5cd1d3dd7376ec8bfe78924ab3d20fcbef52",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
+                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
                 "shasum": ""
             },
             "require": {
@@ -1784,7 +1881,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-25 23:10:58"
+            "time": "2017-06-01 21:02:15"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1792,12 +1889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "adebc086600bc93b45d8d6721c8f21088a2be4dc"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/adebc086600bc93b45d8d6721c8f21088a2be4dc",
-                "reference": "adebc086600bc93b45d8d6721c8f21088a2be4dc",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -1809,7 +1906,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1843,7 +1940,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-05-29T15:51:17+00:00"
+            "time": "2017-06-14 15:44:48"
         },
         {
             "name": "symfony/process",
@@ -1851,12 +1948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "b9b8a8ad479898d6d71bc699b4d729886a412ffc"
+                "reference": "2695aab6520a632522311c7baa938d6153a9d9dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/b9b8a8ad479898d6d71bc699b4d729886a412ffc",
-                "reference": "b9b8a8ad479898d6d71bc699b4d729886a412ffc",
+                "url": "https://api.github.com/repos/symfony/process/zipball/2695aab6520a632522311c7baa938d6153a9d9dc",
+                "reference": "2695aab6520a632522311c7baa938d6153a9d9dc",
                 "shasum": ""
             },
             "require": {
@@ -1892,7 +1989,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-24 11:37:21"
+            "time": "2017-07-12T13:09:21+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -1900,12 +1997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "162ab93ee3ff841fc9398232aa36a061467aef19"
+                "reference": "052ff63e5d9d8533bd76e326f5f4ea5f67893666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/162ab93ee3ff841fc9398232aa36a061467aef19",
-                "reference": "162ab93ee3ff841fc9398232aa36a061467aef19",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/052ff63e5d9d8533bd76e326f5f4ea5f67893666",
+                "reference": "052ff63e5d9d8533bd76e326f5f4ea5f67893666",
                 "shasum": ""
             },
             "require": {
@@ -1941,7 +2038,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-17 16:21:40"
+            "time": "2017-07-06 09:14:58"
         },
         {
             "name": "symfony/yaml",
@@ -1949,12 +2046,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "148fc194e031b0640093868d7cf408378996a0d6"
+                "reference": "519fb0872bb41e0f0c221ead8945eb12197bb034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/148fc194e031b0640093868d7cf408378996a0d6",
-                "reference": "148fc194e031b0640093868d7cf408378996a0d6",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/519fb0872bb41e0f0c221ead8945eb12197bb034",
+                "reference": "519fb0872bb41e0f0c221ead8945eb12197bb034",
                 "shasum": ""
             },
             "require": {
@@ -1996,7 +2093,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-28 10:56:43"
+            "time": "2017-07-03 10:20:17"
         },
         {
             "name": "webmozart/assert",
@@ -2055,6 +2152,8 @@
         "dhii/collections-interface": 20,
         "dhii/block-interface": 20,
         "dhii/data-get-capable-interface": 20,
+        "dhii/invocable-interface": 20,
+        "dhii/callback-aware-trait": 20,
         "dhii/php-cs-fixer-config": 20
     },
     "prefer-stable": false,
