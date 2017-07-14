@@ -3,6 +3,7 @@
 namespace RebelCode\WordPress\Admin\ListTable;
 
 use Dhii\Data\GetCapableInterface;
+use RebelCode\WordPress\Admin\ListTable\Column\AbstractBaseColumn;
 
 /**
  * A column that renders data for an item that implements {@see Dhii\Data\GetCapableInterface}.

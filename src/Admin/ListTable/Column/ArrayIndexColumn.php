@@ -1,6 +1,7 @@
 <?php
 
 namespace RebelCode\WordPress\Admin\ListTable;
+use RebelCode\WordPress\Admin\ListTable\Column\AbstractBaseColumn;
 
 /**
  * A column that displays the data for a specific index in an array item.

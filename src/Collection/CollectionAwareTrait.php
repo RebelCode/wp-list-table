@@ -16,7 +16,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @var CollectionInterface
+     * @var \RebelCode\WordPress\Collection\CollectionInterface
      */
     protected $collection;
 
@@ -25,7 +25,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @return CollectionInterface
+     * @return \RebelCode\WordPress\Collection\CollectionInterface
      */
     protected function _getCollection()
     {
@@ -37,7 +37,7 @@ trait CollectionAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param CollectionInterface $collection The item collection.
+     * @param \RebelCode\WordPress\Collection\CollectionInterface $collection The item collection.
      *
      * @return $this
      */

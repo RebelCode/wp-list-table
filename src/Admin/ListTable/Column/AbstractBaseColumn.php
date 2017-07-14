@@ -2,6 +2,9 @@
 
 namespace RebelCode\WordPress\Admin\ListTable;
 
+use RebelCode\WordPress\Admin\ListTable\Column\AbstractColumn;
+use RebelCode\WordPress\Admin\ListTable\Column\ColumnInterface;
+
 /**
  * Base functionality for a column.
  *

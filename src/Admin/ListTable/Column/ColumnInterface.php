@@ -4,7 +4,7 @@ namespace RebelCode\WordPress\Admin\ListTable;
 
 use Dhii\Block\BlockInterface;
 use Dhii\Data\IdAwareInterface;
-use RebelCode\WordPress\Admin\ActionsAwareInterface;
+use RebelCode\WordPress\Action\ActionsAwareInterface;
 use RebelCode\WordPress\LabelAwareInterface;
 
 /**

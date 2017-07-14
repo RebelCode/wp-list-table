@@ -3,8 +3,8 @@
 namespace RebelCode\WordPress\Admin\ListTable;
 
 use Dhii\Util\String\StringableInterface;
-use RebelCode\WordPress\Admin\ActionInterface;
-use RebelCode\WordPress\Admin\ActionsAwareTrait;
+use RebelCode\WordPress\Action\ActionInterface;
+use RebelCode\WordPress\Action\ActionsAwareTrait;
 use RebelCode\WordPress\IdAwareTrait;
 use RebelCode\WordPress\LabelAwareTrait;
 use Traversable;
@@ -16,7 +16,7 @@ use Traversable;
  */
 abstract class AbstractColumn
 {
-    use ActionsAwareTrait;
+    use RebelCode\WordPress\Action\ActionsAwareTrait;
     use IdAwareTrait;
     use LabelAwareTrait;
 
@@ -70,66 +70,11 @@ abstract class AbstractColumn
     protected function _render(ListTableInterface $listTable, $item)
     {
         return sprintf(
-            '<td %1$s>%2$s %3$s %4$s</td>',
-            $this->_renderAttributes($listTable, $item),
+            '%2$s %3$s %4$s',
             $this->_renderContent($listTable, $item),
             $this->_renderActions($listTable, $item),
             $this->_renderResponsiveToggleButton($listTable, $item)
         );
-    }
-
-    /**
-     * Gets the HTML classes to render.
-     *
-     * @since [*next-version*]
-     *
-     * @param ListTableInterface $listTable The list table instance.
-     * @param mixed              $item      The item.
-     *
-     * @return string
-     */
-    protected function _getHtmlClasses(ListTableInterface $listTable, $item)
-    {
-        $id = $this->getId();
-
-        $classes = array($id, sprintf('column-%s', $id));
-
-        if ($id === $listTable->getPrimaryColumn()) {
-            $classes[] = 'column-primary';
-        }
-
-        if (in_array($id, $listTable->getHiddenColumns())) {
-            $classes[] = 'hidden';
-        }
-
-        if (count($this->_getActions())) {
-            $classes[] = 'has-row-actions';
-        }
-
-        return $classes;
-    }
-
-    /**
-     * Renders the attributes.
-     *
-     * @since [*next-version*]
-     *
-     * @param ListTableInterface $listTable The list table instance.
-     * @param mixed              $item      The item.
-     *
-     * @return string|StringableInterface The rendered attributes.
-     */
-    protected function _renderAttributes(ListTableInterface $listTable, $item)
-    {
-        // Get data
-        $label   = $this->_getLabel();
-        $classes = $this->_getHtmlClasses($listTable, $item);
-
-        // Render HTML
-        $htmlClassAttr = $this->_attr('class', $classes);
-        $htmlDataAttr  = $this->_attr('data-colname', $label);
-
-        return sprintf('%1$s %2$s', $htmlClassAttr, $htmlDataAttr);
     }
 
     /**
@@ -139,7 +84,7 @@ abstract class AbstractColumn
      *
      * @param ActionInterface[]|Traversable $actions A list of action instances.
      *
-     * @return $this
+     * @return string[]
      */
     protected function _prepareActions($actions)
     {
@@ -171,23 +116,6 @@ abstract class AbstractColumn
         $rowActions = $this->_prepareActions($this->_getActions());
 
         return $listTable->row_actions($rowActions);
-    }
-
-    /**
-     * Generates an HTML attribute.
-     *
-     * @param string      $attr  The attribute name.
-     * @param string|aray $value The string value or an array of values to be space separated.
-     *
-     * @return string The generated HTML string.
-     */
-    protected function _attr($attr, $value)
-    {
-        $valueStr = is_array($value)
-            ? implode(' ', $value)
-            : strval($value);
-
-        return sprintf('%1$s="%2$s"', $attr, esc_attr($valueStr));
     }
 
     /**
