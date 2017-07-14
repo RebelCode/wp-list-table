@@ -1,6 +1,6 @@
 <?php
 
-namespace RebelCode\WordPress;
+namespace RebelCode\WordPress\Pagination;
 
 /**
  * Something that has pagination.
@@ -25,16 +25,7 @@ trait PaginationAwareTrait
      *
      * @var int
      */
-    protected $totalNumItems;
-
-    /**
-     * The total number of pages.
-     *
-     * @since [*next-version*]
-     *
-     * @var int
-     */
-    protected $totalNumPages;
+    protected $numItems;
 
     /**
      * The current page number.
@@ -52,9 +43,9 @@ trait PaginationAwareTrait
      *
      * @return int
      */
-    protected function _getTotalNumItems()
+    protected function _getNumItems()
     {
-        return $this->totalNumItems;
+        return $this->numItems;
     }
 
     /**
@@ -62,13 +53,13 @@ trait PaginationAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param int $totalNumItems The total number of items.
+     * @param int $numItems The total number of items.
      *
      * @return $this
      */
-    protected function _setTotalNumItems($totalNumItems)
+    protected function _setNumItems($numItems)
     {
-        $this->totalNumItems = $totalNumItems;
+        $this->numItems = $numItems;
 
         return $this;
     }
@@ -108,25 +99,9 @@ trait PaginationAwareTrait
      *
      * @return int
      */
-    protected function _getTotalNumPages()
+    protected function _getNumPages()
     {
-        return $this->totalNumPages;
-    }
-
-    /**
-     * Sets the total number of pages.
-     *
-     * @since [*next-version*]
-     *
-     * @param int $totalNumPages The total number of pages.
-     *
-     * @return $this
-     */
-    protected function _setTotalNumPages($totalNumPages)
-    {
-        $this->totalNumPages = $totalNumPages;
-
-        return $this;
+        return (int) ceil($this->_getNumItems() / $this->_getItemsPerPage());
     }
 
     /**
