@@ -9,6 +9,6 @@ use Dhii\Collection\ReadableCollectionInterface;
  *
  * @since [*next-version*]
  */
-interface CollectionInterface extends GrossCollectionInterface
+interface CollectionInterface extends ReadableCollectionInterface
 {
 }
