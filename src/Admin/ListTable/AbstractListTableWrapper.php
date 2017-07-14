@@ -104,7 +104,7 @@ abstract class AbstractListTableWrapper extends \WP_List_Table
      */
     public function get_total_items()
     {
-        return $this->_getTotalNumItems();
+        return $this->_getNumItems();
     }
 
     /**
@@ -115,8 +115,8 @@ abstract class AbstractListTableWrapper extends \WP_List_Table
     protected function set_pagination_args($args)
     {
         parent::set_pagination_args(array(
-            'total_items' => $this->_getTotalNumItems(),
-            'total_pages' => $this->_getTotalNumPages(),
+            'total_items' => $this->_getNumItems(),
+            'total_pages' => $this->_getNumPages(),
             'per_page'    => $this->_getItemsPerPage(),
         ));
     }
@@ -199,7 +199,7 @@ abstract class AbstractListTableWrapper extends \WP_List_Table
      *
      * @return int
      */
-    abstract protected function _getTotalNumItems();
+    abstract protected function _getNumItems();
 
     /**
      * Retrieves the number of items per page.
@@ -217,7 +217,7 @@ abstract class AbstractListTableWrapper extends \WP_List_Table
      *
      * @return int
      */
-    abstract protected function _getTotalNumPages();
+    abstract protected function _getNumPages();
 
     /**
      * Gets the current page number.
