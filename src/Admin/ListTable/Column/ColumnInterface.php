@@ -9,7 +9,7 @@ use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
 use RebelCode\WordPress\LabelAwareInterface;
 
 /**
- * Represents a list table column.
+ * Something that represents a list table column.
  *
  * @since [*next-version*]
  */

@@ -86,6 +86,8 @@ abstract class AbstractColumn
      * Retrieves the column type.
      *
      * @since [*next-version*]
+     * @see ColumnInterface::TYPE_REGULAR
+     * @see ColumnInterface::TYPE_HEADER
      *
      * @return int
      */
@@ -98,6 +100,8 @@ abstract class AbstractColumn
      * Sets the column type.
      *
      * @since [*next-version*]
+     * @see ColumnInterface::TYPE_REGULAR
+     * @see ColumnInterface::TYPE_HEADER
      *
      * @param int $type The column type.
      *

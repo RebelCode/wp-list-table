@@ -2,6 +2,11 @@
 
 namespace RebelCode\WordPress\Html;
 
+/**
+ * Something that is capable of rendering HTML.
+ *
+ * @since [*next-version*]
+ */
 trait HtmlRenderCapableTrait
 {
     protected function _tag($tag, $attrs = array(), $content = '')

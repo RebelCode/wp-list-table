@@ -6,7 +6,7 @@ use RebelCode\WordPress\Admin\ListTable\ListTableInterface;
 use RebelCode\WordPress\Admin\ListTable\Row\RowInterface;
 
 /**
- * Description of AbstractCheckboxColumn.
+ * A list table column that renders the selection checkbox.
  *
  * @since [*next-version*]
  */

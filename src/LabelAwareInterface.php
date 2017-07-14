@@ -3,7 +3,7 @@
 namespace RebelCode\WordPress;
 
 /**
- * Something that hsa a label.
+ * Something that has a label.
  *
  * @since [*next-version*]
  */
